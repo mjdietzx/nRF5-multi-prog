@@ -16,7 +16,7 @@ def read_requirements(fname):
 
 setup(
     name ='nrf5_multi_prog',
-    version = 0.0.1,
+    version = '0.0.1',
     description = 'Program multiple nRF5 devices concurrently with this nrfjprog inspired python module/exe',
     long_description=read('README.md'),
     url = 'http://www.nordicsemi.com/',
