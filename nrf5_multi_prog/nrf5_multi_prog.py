@@ -176,6 +176,7 @@ class nRF5MultiFlash(object):
             self.nRF5_instances[device].sys_reset()
             self.nRF5_instances[device].go()
 
+        print 'program on ' + ','.join([str(x) for x in self.snrs]) + ' had completed'
 
     def _cleanup(self, device):
         self.nRF5_instances[device].disconnect_from_emu()
