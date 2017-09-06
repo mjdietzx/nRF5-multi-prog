@@ -111,7 +111,7 @@ class CLI(object):
     def _add_verify_argument(self, parser):
         parser.add_argument('-v', '--verify', action='store_true', help='Read back memory and verify that it matches FILE.')
 
-
+# the working object
 class nRF5MultiFlash(object):
     def __init__(self, args):
         self.nRF5_instances = {}
@@ -211,6 +211,7 @@ if __name__ == '__main__':
     elif sys.platform.lower().startswith('linux'):
         pass
     elif sys.platform.startswith('dar'):
+        # change to custom nrfjprog file
         os.environ['PATH'] = '/usr/local/Caskroom/nrf5x-command-line-tools/8.3.0/nrfjprog/' + ';' + os.environ['PATH']
 
     multiprocessing.freeze_support()
