@@ -200,8 +200,9 @@ def main():
     args = cli.run()
 
     nRF = nRF5MultiFlash(args)
-
+    # find all snrs
     pool = ThreadPool(len(nRF.snrs))
+    # apply command to each snrs
     pool.map(nRF.perform_command, nRF.snrs)
 
 if __name__ == '__main__':
