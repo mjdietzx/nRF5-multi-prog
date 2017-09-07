@@ -111,7 +111,7 @@ class CLI(object):
     def _add_verify_argument(self, parser):
         parser.add_argument('-v', '--verify', action='store_true', help='Read back memory and verify that it matches FILE.')
 
-
+# the working object
 class nRF5MultiFlash(object):
     def __init__(self, args):
         self.nRF5_instances = {}
@@ -176,6 +176,7 @@ class nRF5MultiFlash(object):
             self.nRF5_instances[device].sys_reset()
             self.nRF5_instances[device].go()
 
+        print 'program on ' + ','.join([str(x) for x in self.snrs]) + ' had completed'
 
     def _cleanup(self, device):
         self.nRF5_instances[device].disconnect_from_emu()
@@ -210,6 +211,7 @@ if __name__ == '__main__':
     elif sys.platform.lower().startswith('linux'):
         pass
     elif sys.platform.startswith('dar'):
+        # change to custom nrfjprog file
         os.environ['PATH'] = '/usr/local/Caskroom/nrf5x-command-line-tools/8.3.0/nrfjprog/' + ';' + os.environ['PATH']
 
     multiprocessing.freeze_support()
